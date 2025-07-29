@@ -1,0 +1,16 @@
+[project]
+name = "amazon-fluvial-transport-net"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "folium>=0.20.0",
+    "geopandas>=1.1.0",
+    "ipykernel>=6.29.5",
+    "lxml>=5.4.0",
+    "matplotlib>=3.10.3",
+    "ogr2osm",
+    "polyline>=2.0.2",
+    "pyarrow>=20.0.0",
+]
