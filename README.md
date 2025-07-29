@@ -6,6 +6,9 @@ This project processes the Amazon river and road network dataset to create a rou
 
 The Amazon region faces unique geographical challenges for healthcare access due to its vast river network being the primary transportation mode. This project converts the comprehensive river and road dataset from Rocha et al. (2023) into OSRM-compatible format, enabling time-to-care analysis and accessibility studies in the International Amazon region.
 
+![Amazon Rivers Network](images/rivers_amazon_plot.png)
+*Visualization of the Amazon transportation network showing roads, waterways, and other infrastructure*
+
 ## Data Source
 
 This project uses the river dataset published in:
@@ -20,12 +23,27 @@ The original dataset combines data from OpenStreetMap, HydroSHEDS, and GloRiC to
 - **Custom OSRM Profile**: Includes a specialized `fluvial.lua` profile designed for waterway routing
 - **Visualization Tools**: Interactive maps showing routes and network analysis
 - **Docker Integration**: Uses OSRM Docker containers for processing and routing
+- **Route Examples**: Demonstrates routing capabilities in key Amazon cities (Iquitos, Manaus)
 
 ## Prerequisites
 
 - Python 3.10+
+- [uv](https://github.com/astral-sh/uv) (recommended for dependency management)
 - Docker (required for OSRM processing)
+- [osmium-tool](https://osmcode.org/osmium-tool/) (for OSM data conversion)
 - Git
+
+### Installing osmium-tool
+
+On macOS:
+```bash
+brew install osmium-tool
+```
+
+On Ubuntu/Debian:
+```bash
+sudo apt-get install osmium-tool
+```
 
 ## Installation
 
@@ -34,15 +52,10 @@ The original dataset combines data from OpenStreetMap, HydroSHEDS, and GloRiC to
 git clone https://github.com/Claudio9701/amazon_fluvial_transport_net.git
 cd amazon_fluvial_transport_net
 ```
-2. (Recommended) Create a virtual environment using [uv](https://github.com/astral-sh/uv):
-```bash
-uv venv .venv
-source .venv/bin/activate
-```
 
-3. Install Python dependencies
+2. Install Python dependencies using [uv](https://github.com/astral-sh/uv):
 ```bash
-uv add -r requirements.txt
+uv sync
 ```
 
 3. Download the original dataset:
@@ -82,6 +95,19 @@ end = [-60.021018, -3.135563]
 route = get_osrm_route(start, end)
 ```
 
+### Route Examples
+
+The system can calculate optimal routes using the combined road and river network:
+
+**Route near Iquitos:**
+![Route Example - Iquitos](images/route_iquitos.png)
+
+**Route near Manaus:**
+![Route Example - Manaus](images/route_manaus.png)
+
+**Detailed view of river network near Iquitos:**
+![Iquitos Rivers Detail](images/iquitos_rivers_plot.png)
+
 ## Custom OSRM Profile
 
 ### The Fluvial Profile
@@ -101,8 +127,12 @@ This project includes a custom OSRM profile (`fluvial.lua`) specifically designe
 ```
 ├── data_cleaning.ipynb          # Main processing notebook
 ├── fluvial.lua                  # Custom OSRM profile for waterways
-├── main.py                      # Entry point script
 ├── pyproject.toml              # Project dependencies
+├── images/                     # Example visualizations
+│   ├── rivers_amazon_plot.png  # Network overview
+│   ├── iquitos_rivers_plot.png # Iquitos region detail
+│   ├── route_iquitos.png       # Example route near Iquitos
+│   └── route_manaus.png        # Example route near Manaus
 ├── inputs/                     # Input data directory
 │   └── rivers_database.zip     # Original dataset (user-provided)
 └── outputs/                    # Generated files
@@ -114,16 +144,18 @@ This project includes a custom OSRM profile (`fluvial.lua`) specifically designe
 
 ## Dependencies
 
-Key Python packages:
+Key Python packages (managed via `pyproject.toml`):
 - `geopandas`: Geospatial data processing
 - `folium`: Interactive mapping
 - `lxml`: XML processing for OSM format
 - `polyline`: Route geometry encoding/decoding
 - `contextily`: Basemap integration
 - `matplotlib`: Static plotting
+- `requests`: HTTP requests for routing API
+- `pyarrow`: Efficient data serialization
 
-Other dependencies include:
-- `osmium`: OSM data manipulation
+External dependencies:
+- `osmium`: OSM data manipulation (used via command line)
 - `docker`: For OSRM processing
 
 ## Output Files

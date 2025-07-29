@@ -1,16 +1,17 @@
 [project]
 name = "amazon-fluvial-transport-net"
 version = "0.1.0"
-description = "Add your description here"
+description = "Amazon Fluvial Transport Network for OSRM - Processing Amazon river and road network dataset for routing and accessibility analysis"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "contextily>=1.6.0",
     "folium>=0.20.0",
     "geopandas>=1.1.0",
     "ipykernel>=6.29.5",
     "lxml>=5.4.0",
     "matplotlib>=3.10.3",
-    "ogr2osm",
     "polyline>=2.0.2",
     "pyarrow>=20.0.0",
+    "requests>=2.32.0",
 ]
