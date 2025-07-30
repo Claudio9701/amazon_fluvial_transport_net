@@ -200,7 +200,13 @@ Claudio9701. (2023). Amazon Fluvial Transport Network for OSRM. Retrieved from h
 
 ## License
 
-This project follows the licensing terms of the original dataset. Please refer to the original publication for specific usage rights and restrictions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Important**: This license applies to the software code and processing pipeline. The underlying dataset is subject to the licensing terms specified in the original publication:
+
+> Rocha, T.A.H., Silva, L.L., Wen, F.H. et al. River dataset as a potential fluvial transportation network for healthcare access in the Amazon region. Sci Data 10, 188 (2023).
+
+Users must comply with both this license and the original dataset's licensing terms. Please refer to the original publication for dataset-specific usage rights and restrictions.
 
 ## Support
 

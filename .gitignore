@@ -205,3 +205,6 @@ __marimo__/
 # Data files
 inputs/
 outputs/
+
+# MacOS
+.DS_Store

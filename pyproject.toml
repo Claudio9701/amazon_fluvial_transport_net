@@ -3,7 +3,23 @@ name = "amazon-fluvial-transport-net"
 version = "0.1.0"
 description = "Amazon Fluvial Transport Network for OSRM - Processing Amazon river and road network dataset for routing and accessibility analysis"
 readme = "README.md"
+license = {text = "MIT"}
 requires-python = ">=3.10"
+authors = [
+    {name = "Claudio9701"},
+]
+keywords = ["amazon", "routing", "osrm", "rivers", "transportation", "healthcare", "accessibility"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
 dependencies = [
     "contextily>=1.6.0",
     "folium>=0.20.0",
@@ -15,3 +31,8 @@ dependencies = [
     "pyarrow>=20.0.0",
     "requests>=2.32.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Claudio9701/amazon_fluvial_transport_net"
+Repository = "https://github.com/Claudio9701/amazon_fluvial_transport_net"
+Issues = "https://github.com/Claudio9701/amazon_fluvial_transport_net/issues"
